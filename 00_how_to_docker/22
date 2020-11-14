@@ -1,0 +1,11 @@
+docker-machine ssh Char
+docker swarm join-token worker
+#<copy>
+
+#In another terminal
+#...
+docker-machine ssh Aiur
+#<paste>
+#...
+
+docker node ls

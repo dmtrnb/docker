@@ -1,0 +1,1 @@
+docker inspect --format='{{range $index, $value := .Config.Env}}{{$value}}{{"\x0a"}}{{end}}' spawning-pool
