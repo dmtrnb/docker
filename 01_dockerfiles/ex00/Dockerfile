@@ -1,4 +1,4 @@
 FROM alpine
-RUN apk update && apk upgarde && apk add emacs
+RUN apk update && apk upgrade && apk add emacs
 CMD [""]
 ENTRYPOINT ["/usr/bin/emacs"]
