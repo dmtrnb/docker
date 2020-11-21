@@ -29,7 +29,7 @@
 ##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP
 ##! address from AWS. For more details, see:
 ##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
-external_url 'http://192.168.99.114'
+external_url 'GENERATED_EXTERNAL_URL'
 
 ## Roles for multi-instance GitLab
 ##! The default is to have no roles enabled, which results in GitLab running as an all-in-one instance.
@@ -63,7 +63,7 @@ external_url 'http://192.168.99.114'
 ## gitlab.yml configuration
 ##! Docs: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/gitlab.yml.md
 ################################################################################
-gitlab_rails['gitlab_ssh_host'] = '192.168.99.114:22'
+# gitlab_rails['gitlab_ssh_host'] = 'ssh.host_example.com'
 # gitlab_rails['gitlab_ssh_user'] = ''
 # gitlab_rails['time_zone'] = 'UTC'
 
@@ -77,7 +77,7 @@ gitlab_rails['gitlab_ssh_host'] = '192.168.99.114:22'
 ###! Docs: https://docs.gitlab.com/omnibus/settings/smtp.html
 ###! **Use smtp instead of sendmail/postfix.**
 
-gitlab_rails['smtp_enable'] = false
+# gitlab_rails['smtp_enable'] = true
 # gitlab_rails['smtp_address'] = "smtp.server"
 # gitlab_rails['smtp_port'] = 465
 # gitlab_rails['smtp_user_name'] = "smtp user"
@@ -96,7 +96,7 @@ gitlab_rails['smtp_enable'] = false
 
 ### Email Settings
 
-gitlab_rails['gitlab_email_enabled'] = false
+# gitlab_rails['gitlab_email_enabled'] = true
 
 ##! If your SMTP server does not like the default 'From: gitlab@gitlab.example.com'
 ##! can change the 'From' with this setting.
@@ -110,8 +110,8 @@ gitlab_rails['gitlab_email_enabled'] = false
 # gitlab_rails['gitlab_email_smime_ca_certs_file'] = '/etc/gitlab/ssl/gitlab_smime_cas.crt'
 
 ### GitLab user privileges
-gitlab_rails['gitlab_default_can_create_group'] = true
-gitlab_rails['gitlab_username_changing_enabled'] = true
+# gitlab_rails['gitlab_default_can_create_group'] = true
+# gitlab_rails['gitlab_username_changing_enabled'] = true
 
 ### Default Theme
 ### Available values:
@@ -125,7 +125,7 @@ gitlab_rails['gitlab_username_changing_enabled'] = true
 ##! `8`  for Light Green
 ##! `9`  for Red
 ##! `10` for Light Red
-gitlab_rails['gitlab_default_theme'] = 3
+# gitlab_rails['gitlab_default_theme'] = 2
 
 ### Default project feature settings
 # gitlab_rails['gitlab_default_projects_features_issues'] = true
@@ -235,7 +235,7 @@ gitlab_rails['gitlab_default_theme'] = 3
 ###! Allow users to comment on issues and merge requests by replying to
 ###! notification emails.
 ###! Docs: https://docs.gitlab.com/ee/administration/reply_by_email.html
-gitlab_rails['incoming_email_enabled'] = false
+# gitlab_rails['incoming_email_enabled'] = true
 
 #### Incoming Email Address
 ####! The email address including the `%{key}` placeholder that will be replaced
@@ -341,7 +341,7 @@ gitlab_rails['incoming_email_enabled'] = false
 # }
 
 ### Git LFS
-gitlab_rails['lfs_enabled'] = false
+# gitlab_rails['lfs_enabled'] = true
 # gitlab_rails['lfs_storage_path'] = "/var/opt/gitlab/gitlab-rails/shared/lfs-objects"
 # gitlab_rails['lfs_object_store_enabled'] = false
 # gitlab_rails['lfs_object_store_direct_upload'] = false
@@ -384,7 +384,7 @@ gitlab_rails['lfs_enabled'] = false
 
 ### Terraform state
 ###! Docs: https://docs.gitlab.com/ee/administration/terraform_state
-gitlab_rails['terraform_state_enabled'] = false
+# gitlab_rails['terraform_state_enabled'] = true
 # gitlab_rails['terraform_state_storage_path'] = "/var/opt/gitlab/gitlab-rails/shared/terraform_state"
 # gitlab_rails['terraform_state_object_store_enabled'] = false
 # gitlab_rails['terraform_state_object_store_remote_directory'] = "terraform"
@@ -416,7 +416,7 @@ gitlab_rails['terraform_state_enabled'] = false
 # }
 
 ### Impersonation settings
-gitlab_rails['impersonation_enabled'] = false
+# gitlab_rails['impersonation_enabled'] = true
 
 ### Usage Statistics
 # gitlab_rails['usage_ping_enabled'] = true
@@ -598,8 +598,8 @@ gitlab_rails['impersonation_enabled'] = false
 # high_availability['mountpoint'] = ["/var/opt/gitlab/git-data", "/var/opt/gitlab/gitlab-rails/shared"]
 
 ### GitLab Shell settings for GitLab
-# gitlab_rails['gitlab_shell_ssh_port'] = 22
-# gitlab_rails['gitlab_shell_git_timeout'] = 800
+#gitlab_rails['gitlab_shell_ssh_port'] = 22
+#gitlab_rails['gitlab_shell_git_timeout'] = 800
 
 ### Extra customization
 # gitlab_rails['extra_google_analytics_id'] = '_your_tracking_id'
@@ -637,7 +637,7 @@ gitlab_rails['impersonation_enabled'] = false
 # gitlab_rails['initial_license_file'] = '/etc/gitlab/company.gitlab-license'
 
 #### Enable or disable automatic database migrations
-gitlab_rails['auto_migrate'] = false
+# gitlab_rails['auto_migrate'] = true
 
 #### This is advanced feature used by large gitlab deployments where loading
 #### whole RAILS env takes a lot of time.
@@ -675,7 +675,7 @@ gitlab_rails['auto_migrate'] = false
 # gitlab_rails['redis_ssl'] = false
 # gitlab_rails['redis_password'] = nil
 # gitlab_rails['redis_database'] = 0
-gitlab_rails['redis_enable_client'] = false
+# gitlab_rails['redis_enable_client'] = true
 
 #### Redis local UNIX socket (will be disabled if TCP method is used)
 # gitlab_rails['redis_socket'] = "/var/opt/gitlab/redis/redis.socket"
@@ -858,8 +858,8 @@ gitlab_rails['redis_enable_client'] = false
 ##! Docs: https://docs.gitlab.com/omnibus/settings/configuration.html#changing-the-name-of-the-git-user-group
 ################################################################################
 
-user['username'] = "nhamill21"
-user['group'] = "nhamill42"
+# user['username'] = "git"
+# user['group'] = "git"
 # user['uid'] = nil
 # user['gid'] = nil
 
@@ -878,11 +878,11 @@ user['group'] = "nhamill42"
 ##! Docs: https://docs.gitlab.com/omnibus/settings/unicorn.html
 ################################################################################
 
-unicorn['enable'] = false
-unicorn['worker_timeout'] = 300
+# unicorn['enable'] = false
+# unicorn['worker_timeout'] = 60
 ###! Minimum worker_processes is 2 at this moment
 ###! See https://gitlab.com/gitlab-org/gitlab-foss/issues/18771
-unicorn['worker_processes'] = 4
+# unicorn['worker_processes'] = 2
 
 ### Advanced settings
 # unicorn['listen'] = 'localhost'
@@ -914,7 +914,7 @@ unicorn['worker_processes'] = 4
 ##! Docs: https://docs.gitlab.com/omnibus/settings/puma.html
 ################################################################################
 
-puma['enable'] = false
+# puma['enable'] = true
 # puma['ha'] = false
 # puma['worker_timeout'] = 60
 # puma['worker_processes'] = 2
@@ -970,7 +970,7 @@ puma['enable'] = false
 
 # sidekiq['negate'] = false
 
-sidekiq['metrics_enabled'] = false
+# sidekiq['metrics_enabled'] = true
 # sidekiq['exporter_log_enabled'] = false
 # sidekiq['listen_address'] = "localhost"
 # sidekiq['listen_port'] = 8082
@@ -990,7 +990,7 @@ sidekiq['metrics_enabled'] = false
 
 ### Migration to Go feature flags
 ###! Docs: https://gitlab.com/gitlab-org/gitlab-shell#migration-to-go-feature-flags
-gitlab_shell['migration'] = { enabled: false, features: [] }
+# gitlab_shell['migration'] = { enabled: true, features: [] }
 
 ### Git trace log file.
 ###! If set, git commands receive GIT_TRACE* environment variables
@@ -1011,7 +1011,7 @@ gitlab_shell['migration'] = { enabled: false, features: [] }
 ###! By default, reconfigure reloads postgresql if it is running. If you
 ###! change any of these settings, be sure to run `gitlab-ctl restart postgresql`
 ###! after reconfigure in order for the changes to take effect.
-postgresql['enable'] = false
+# postgresql['enable'] = true
 # postgresql['listen_address'] = nil
 # postgresql['port'] = 5432
 
@@ -1160,7 +1160,7 @@ postgresql['enable'] = false
 ##! Docs: https://docs.gitlab.com/omnibus/settings/redis.html
 ################################################################################
 
-redis['enable'] = false
+# redis['enable'] = true
 # redis['ha'] = false
 # redis['hz'] = 10
 # redis['dir'] = "/var/opt/gitlab/redis"
@@ -1264,8 +1264,8 @@ redis['enable'] = false
 ################################################################################
 
 nginx['enable'] = true
-nginx['client_max_body_size'] = '250m'
-nginx['redirect_http_to_https'] = false
+# nginx['client_max_body_size'] = '250m'
+nginx['redirect_http_to_https'] = true
 nginx['redirect_http_to_https_port'] = 80
 
 ##! Most root CA's are included by default
@@ -1277,8 +1277,8 @@ nginx['redirect_http_to_https_port'] = 80
 ##! if ssl_verify_client on, verification depth in the client certificates chain
 # nginx['ssl_verify_depth'] = "1"
 
-# nginx['ssl_certificate'] = "/etc/gitlab/ssl/#{node['fqdn']}.crt"
-# nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/#{node['fqdn']}.key"
+nginx['ssl_certificate'] = "/etc/gitlab/ssl/#{node['fqdn']}.crt"
+nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/#{node['fqdn']}.key"
 # nginx['ssl_ciphers'] = "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256"
 # nginx['ssl_prefer_server_ciphers'] = "on"
 
@@ -1414,7 +1414,7 @@ nginx['redirect_http_to_https_port'] = 80
 ##! Docs: https://docs.gitlab.com/omnibus/settings/logs.html#logrotate
 ##! You can disable built in logrotate feature.
 ################################################################################
-logrotate['enable'] = false
+# logrotate['enable'] = true
 # logrotate['log_directory'] = "/var/log/gitlab/logrotate"
 
 ################################################################################
@@ -1585,7 +1585,7 @@ logrotate['enable'] = false
 ################################################################################
 
 ##! Enable GitLab KAS
-gitlab_kas['enable'] = false
+# gitlab_kas['enable'] = true
 
 ##! Agent configuration for GitLab KAS
 # gitlab_kas['agent_configuration_poll_period'] = 20
@@ -1707,9 +1707,9 @@ gitlab_kas['enable'] = false
 ###! **To enable only Monitoring service in this machine, uncomment
 ###!   the line below.**
 ###! Docs: https://docs.gitlab.com/ee/administration/high_availability
-monitoring_role['enable'] = false
+# monitoring_role['enable'] = true
 
-prometheus['enable'] = false
+# prometheus['enable'] = true
 # prometheus['monitor_kubernetes'] = true
 # prometheus['username'] = 'gitlab-prometheus'
 # prometheus['group'] = 'gitlab-prometheus'
@@ -1787,7 +1787,7 @@ prometheus['enable'] = false
 ## Prometheus Alertmanager
 ################################################################################
 
-alertmanager['enable'] = false
+# alertmanager['enable'] = true
 # alertmanager['home'] = '/var/opt/gitlab/alertmanager'
 # alertmanager['log_directory'] = '/var/log/gitlab/alertmanager'
 # alertmanager['admin_email'] = 'admin@example.com'
@@ -1810,7 +1810,7 @@ alertmanager['enable'] = false
 ##! Docs: https://docs.gitlab.com/ee/administration/monitoring/prometheus/node_exporter.html
 ################################################################################
 
-node_exporter['enable'] = false
+# node_exporter['enable'] = true
 # node_exporter['home'] = '/var/opt/gitlab/node-exporter'
 # node_exporter['log_directory'] = '/var/log/gitlab/node-exporter'
 # node_exporter['flags'] = {
@@ -1829,7 +1829,7 @@ node_exporter['enable'] = false
 ##! Docs: https://docs.gitlab.com/ee/administration/monitoring/prometheus/redis_exporter.html
 ################################################################################
 
-redis_exporter['enable'] = false
+# redis_exporter['enable'] = true
 # redis_exporter['log_directory'] = '/var/log/gitlab/redis-exporter'
 # redis_exporter['flags'] = {
 #   'redis.addr' => "unix:///var/opt/gitlab/redis/redis.socket",
@@ -1847,7 +1847,7 @@ redis_exporter['enable'] = false
 ##! Docs: https://docs.gitlab.com/ee/administration/monitoring/prometheus/postgres_exporter.html
 ################################################################################
 
-postgres_exporter['enable'] = false
+# postgres_exporter['enable'] = true
 # postgres_exporter['home'] = '/var/opt/gitlab/postgres-exporter'
 # postgres_exporter['log_directory'] = '/var/log/gitlab/postgres-exporter'
 # postgres_exporter['flags'] = {}
@@ -1878,7 +1878,7 @@ postgres_exporter['enable'] = false
 ################################################################################
 
 
-gitlab_exporter['enable'] = false
+# gitlab_exporter['enable'] = true
 # gitlab_exporter['log_directory'] = "/var/log/gitlab/gitlab-exporter"
 # gitlab_exporter['home'] = "/var/opt/gitlab/gitlab-exporter"
 
@@ -1891,7 +1891,7 @@ gitlab_exporter['enable'] = false
 # gitlab_exporter['probe_sidekiq'] = true
 
 # To completely disable prometheus, and all of it's exporters, set to false
-prometheus_monitoring['enable'] = false
+# prometheus_monitoring['enable'] = true
 
 ################################################################################
 ## Grafana Dashboards
@@ -1964,7 +1964,7 @@ grafana['enable'] = false
 
 # The gitaly['enable'] option exists for the purpose of cluster
 # deployments, see https://docs.gitlab.com/ee/administration/gitaly/index.html .
-gitaly['enable'] = false
+# gitaly['enable'] = true
 # gitaly['dir'] = "/var/opt/gitlab/gitaly"
 # gitaly['log_directory'] = "/var/log/gitlab/gitaly"
 # gitaly['bin_path'] = "/opt/gitlab/embedded/bin/gitaly"
@@ -2098,7 +2098,7 @@ gitaly['enable'] = false
 ################################################################################
 # Let's Encrypt integration
 ################################################################################
-# letsencrypt['enable'] = nil
+letsencrypt['enable'] = false
 # letsencrypt['contact_emails'] = [] # This should be an array of email addresses to add as contacts
 # letsencrypt['group'] = 'root'
 # letsencrypt['key_size'] = 2048
