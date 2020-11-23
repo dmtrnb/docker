@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  token:
+    build: ./getToken
+    container_name: getToken
+    ports:
+      - "8082:8082"
+  id:
+    build: ./getIdByLogin
+    container_name: getIdByLogin
+    ports:
+      - "8083:8083"
+    depends_on:
+      - token
+  user:
+    build: ./getUserById
+    container_name: getUserById
+    ports:
+      - "8084:8084"
+    depends_on:
+      - token
+  info:
+    build: ./getInfo
+    container_name: getInfo
+    ports:
+      - "8081:8081"
+    depends_on:
+      - id
+      - user
